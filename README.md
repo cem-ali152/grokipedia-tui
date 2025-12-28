@@ -31,7 +31,7 @@ pip install pyinstaller & pyinstaller main.py
 | `-t`        | `--typeahead`        | Run the Typeahead API                              |
 | `-f`        | `--full-text-search` | Run the Full Text Search API (**requires offset**) |
 | `-s`        | `--search`           | Perform a basic search                             |
-| `-T`        | `--tui`              | Launch the Textual-based TUI                       |
+| `-T`        | `--tui`              | coming soon..                                      |
 | `-l LIMIT`  | `--limit LIMIT`      | Set the output result limit                        |
 | `-o OFFSET` | `--offset OFFSET`    | Offset value (**used only with full-text-search**) |
 
