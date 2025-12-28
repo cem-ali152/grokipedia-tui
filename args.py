@@ -1,27 +1,17 @@
 import argparse
 
-
-
-
-
-
-
-
 def args_get():
     parser = argparse.ArgumentParser(
         description="Grokipedia API CLI"
     )
 
-    # ORTAK
     parser.add_argument(
         "-q", "--query",
-        required=True,
         type=str,
         help="Örnek: mustafa_kemal_ataturk"
     )
 
-    # MOD SEÇİMİ
-    mode_group = parser.add_mutually_exclusive_group()
+    mode_group = parser.add_mutually_exclusive_group(required=True)
 
     mode_group.add_argument(
         "-t", "--typeahead",
@@ -35,38 +25,39 @@ def args_get():
         help="Full Text Search API çalıştırır (offset zorunlu)"
     )
 
-    # ORTAK OPSİYONLAR
+    mode_group.add_argument(
+        "-s", "--search",
+        action="store_true",
+        help="Basit arama yapar"
+    )
+
+    mode_group.add_argument(
+        "-T", "--tui",
+        action="store_true",
+        help="Textual tabanlı TUI'yi açar"
+    )
+
     parser.add_argument(
         "-l", "--limit",
         type=int,
-        help="Çıktı limitini belirler",
-        default=5
+        default=5,
+        help="Çıktı limitini belirler"
     )
 
     parser.add_argument(
         "-o", "--offset",
         type=int,
-        help="Offset değeri (sadece full-text-search için)",
-        default=0
-
-    )
-
-    parser.add_argument(
-        "--search","-s",
-        action="store_true",
-        help="Referansları getirir (mod seçilmezse zorunludur)"
+        default=0,
+        help="Offset değeri (sadece full-text-search için)"
     )
 
     args = parser.parse_args()
-    # typeahead → offset yasak
-    if args.typeahead and args.offset is None:
+
+    if not args.tui and not args.query:
+        parser.error("TUI dışındaki tüm modlar --query ister")
+
+    if args.typeahead and args.offset != 0:
         parser.error("--typeahead modunda --offset kullanılamaz")
+    
 
-    # HİÇ MOD SEÇİLMEDİYSE → references zorunlu
-    if not (args.typeahead or args.full_text_search or args.search):
-        parser.error(
-            "Hiçbir mod seçilmedi. "
-            "-h yazın"
-        )
     return args
-
