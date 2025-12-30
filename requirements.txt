@@ -10,7 +10,6 @@ mdurl==0.1.2
 platformdirs==4.5.1
 Pygments==2.19.2
 requests==2.32.5
-rich==14.2.0
 soupsieve==2.8.1
 textual==6.11.0
 typing_extensions==4.15.0
