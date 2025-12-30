@@ -16,48 +16,48 @@ def args_get():
     mode_group.add_argument(
         "-t", "--typeahead",
         action="store_true",
-        help="Typeahead API çalıştırır"
+        help="Runs the Typeahead API"
     )
 
     mode_group.add_argument(
         "-f", "--full-text-search",
         action="store_true",
-        help="Full Text Search API çalıştırır (offset zorunlu)"
+        help="Runs the Full Text Search API"
     )
 
     mode_group.add_argument(
         "-s", "--search",
         action="store_true",
-        help="Basit arama yapar"
+        help="Performs a simple search"
     )
 
     mode_group.add_argument(
         "-T", "--tui",
         action="store_true",
-        help="Textual tabanlı TUI'yi açar"
+        help="Opens the text-based TUI"
     )
 
     parser.add_argument(
         "-l", "--limit",
         type=int,
         default=5,
-        help="Çıktı limitini belirler"
+        help="Sets the output limit"
     )
 
     parser.add_argument(
         "-o", "--offset",
         type=int,
         default=0,
-        help="Offset değeri (sadece full-text-search için)"
+        help="Changes the offset value"
     )
 
     args = parser.parse_args()
 
     if not args.tui and not args.query:
-        parser.error("TUI dışındaki tüm modlar --query ister")
+        parser.error("All modes except TUI require --query")
 
     if args.typeahead and args.offset != 0:
-        parser.error("--typeahead modunda --offset kullanılamaz")
+        parser.error("--offset cannot be used in --typeahead mode")")
     
 
     return args
