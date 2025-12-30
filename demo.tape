@@ -4,7 +4,7 @@ Set Height 500
 Set FontSize 16
 Set Shell bash
 
-Type "echo Basit bir arama ornegi:"
+Type "echo A basic search example:"
 Enter 0.5
 Sleep 1
 
@@ -19,7 +19,7 @@ Enter 0.5
 Sleep 0.3
 
 
-Type "echo Typeahead API kullanimi:"
+Type "echo Using the Typeahead API:"
 Enter 0.5
 Sleep 1
 
@@ -34,7 +34,7 @@ Sleep 0.3
 
 
 
-Type "echo Full text search API kullanimi:"
+Type "echo Using the full-text search API:"
 Enter 0.5
 Sleep 1
 
@@ -45,6 +45,6 @@ Type "clear"
 Enter 0.5
 Sleep 0.3
 
-Type "echo Bu kadar kolay"
+Type "echo It's that! easy"
 Enter 0.5
-Sleep 1
+Sleep 2
