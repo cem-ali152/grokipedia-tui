@@ -6,7 +6,8 @@
 ![](https://github.com/cem-ali152/grokipedia-tui/blob/main/demo.gif)
 That's it!
 
-
+## lang
+![russian](RS_readme.md)
 ## Compiling the Code
 
 First, **Python 3.12** must be installed (a different version has not been tested at this time). It is recommended that you create a **Python virtual environment** (e.g., `conda` or `venv`).
