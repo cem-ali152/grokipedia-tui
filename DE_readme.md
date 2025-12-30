@@ -4,10 +4,8 @@
 
 ## Verwendung
 ![](https://github.com/cem-ali152/grokipedia-tui/blob/main/demo.gif)
-Das ist alles!
+Das ist 
 
-## Sprache
-[русский](RS_readme.md)
 
 ## Code kompilieren
 
