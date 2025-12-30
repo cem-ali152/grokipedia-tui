@@ -7,7 +7,7 @@
 That's it!
 
 ## lang
-![русский](RS_readme.md)
+[русский](RS_readme.md)
 ## Compiling the Code
 
 First, **Python 3.12** must be installed (a different version has not been tested at this time). It is recommended that you create a **Python virtual environment** (e.g., `conda` or `venv`).
