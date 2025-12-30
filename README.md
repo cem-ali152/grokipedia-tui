@@ -29,11 +29,11 @@ pip install pyinstaller & pyinstaller main.py
 | `-h`        | `--help`             | Show this help message and exit                    |
 | `-q QUERY`  | `--query QUERY`      | Search query (example: `mustafa_kemal_ataturk`)    |
 | `-t`        | `--typeahead`        | Run the Typeahead API                              |
-| `-f`        | `--full-text-search` | Run the Full Text Search API (**requires offset**) |
+| `-f`        | `--full-text-search` | Run the Full Text Search API                       |
 | `-s`        | `--search`           | Perform a basic search                             |
 | `-T`        | `--tui`              | coming soon..                                      |
 | `-l LIMIT`  | `--limit LIMIT`      | Set the output result limit                        |
-| `-o OFFSET` | `--offset OFFSET`    | Offset value (**used only with full-text-search**) |
+| `-o OFFSET` | `--offset OFFSET`    | Offset value                                       |
 
 ## Support
 
