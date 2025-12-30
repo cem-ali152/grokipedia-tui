@@ -1,4 +1,6 @@
 ![Python](https://badgen.net/badge/icon/3.12.0?icon=https://www.svgrepo.com/show/452091/python.svg\&label=python)
+
+
 “A terminal-based Grokipedia client that supports both command-line arguments (usable) and an interactive text-based user interface (coming soon)
 ## Usage
 ![](https://github.com/cem-ali152/grokipedia-tui/blob/main/demo.gif)
