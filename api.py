@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from dataclasses import dataclass
 from typing import Optional
 import re 
-#okunabilirlik için yapay zekadan yardım alınmıştır 
+#Artificial intelligence has been used to improve readability. 
 
 
 @dataclass
@@ -16,9 +16,9 @@ class SearchResult:
 
 class GrokipediaAPI:
     def __init__(self, query, limit, offsets):
-        self.query = query #soru
-        self.limit = limit #limiti normal şartlarda typehead için 5 full_text_search için 12
-        self.offsets = offsets#ne olduğunu pek anlamadım ama herhalde iyi birşeydir :) full_text_search için 0
+        self.query = query #query
+        self.limit = limit #limit is normally 5 for typehead and 12 for full_text_search
+        self.offsets = offsets#I don't quite understand what it is, but I guess it's a good thing :) 0 for full_text_search
 
     def typeahead(self):
         url = "https://grokipedia.com/api/typeahead"
@@ -37,7 +37,7 @@ class GrokipediaAPI:
         }
         return requests.get(url, params=params).json()
 
-    def sayfayı_al(self):
+    def take_the_page(self):
         url = f"https://grokipedia.com/page/{self.query}"
         r=requests.get(url)
         return r.text,r.status_code
