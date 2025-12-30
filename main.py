@@ -5,13 +5,13 @@ import api
 
 
 
-def yazdır(results):
+def write(results):
     for i, r in enumerate(results, start=1):
-        print(f"açıklama: {r.snippet}")
-        print(f"yazman gereken: {r.slug}")
+        print(f"explanation: {r.snippet}")
+        print(f"what you need to write: {r.slug}")
         print("-" * 50)
 
-def yazdır_paragraph(results):
+def write_paragraph(results):
     paragraphs = results["paragraphs"]
 
     for p in paragraphs:
@@ -20,34 +20,33 @@ def yazdır_paragraph(results):
 
 
 if __name__=="__main__":
-    print("grokipedia için client toolsu")
-    argümanlar=args.args_get()
-    print(argümanlar)
-    if argümanlar.search:
-        print("references modu çalışıyor")
-        api1=api.GrokipediaAPI(query=argümanlar.query,limit=argümanlar.limit,offsets=argümanlar.offset)
-        sayfa,status_code=api1.sayfayı_al()
+    print("Argument tools for Grokipedia")
+    args=args.args_get()
+    #print(args)
+    if args.search:
+        print("The references module is working")
+        api1=api.GrokipediaAPI(query=args.query,limit=args.limit,offsets=args.offset)
+        page,status_code=api1.sayfayı_al()
         if status_code==404:
-            sayfa1=api1.full_text_search()
-            result=api.Search_Result_Parser.parse(sayfa1)
-            yazdır(results=result)
+            page1=api1.full_text_search()
+            result=api.Search_Result_Parser.parse(page1)
+            write(results=result)
         else:
-            results=api.GrokipediaPageParser.parse(sayfa)
-            yazdır_paragraph(results=results)
+            results=api.GrokipediaPageParser.parse(page)
+            write_paragraph(results=results)
             
         
-    elif argümanlar.typeahead:
-        print("typeahead modu çalışıyor")
-        api1=api.GrokipediaAPI(query=argümanlar.query,limit=argümanlar.limit,offsets=argümanlar.offset)
+    elif args.typeahead:
+        print("The typeahead mode is working.")
+        api1=api.GrokipediaAPI(query=args.query,limit=args.limit,offsets=args.offset)
         sayfa1=api1.typeahead()
         result=api.Search_Result_Parser.parse(sayfa1)
-        yazdır(results=result)
-    elif argümanlar.full_text_search:
-        #Namespace(query='mustafa', typeahead=False, full_text_search=True, limit=5, offset=0, search=False)
-        api1=api.GrokipediaAPI(query=argümanlar.query,limit=argümanlar.limit,offsets=argümanlar.offset)
-        sayfa1=api1.full_text_search()
-        result=api.Search_Result_Parser.parse(sayfa1)
-        yazdır(results=result)
+        write(results=result)
+    elif args.full_text_search:
+        api1=api.GrokipediaAPI(query=args.query,limit=args.limit,offsets=args.offset)
+        page1=api1.full_text_search()
+        result=api.Search_Result_Parser.parse(page1)
+        write(results=result)
 
 
 
